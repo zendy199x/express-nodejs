@@ -7,7 +7,7 @@ block content
     each error in errors
       .alert.alert-danger= error
 
-  form(action="/users/create", method="POST")
+  form(method="POST")
     .form-group
       label(for="email") Email
       input#email.form-control(name="email", type="text", value=values ? values.email : "")
