@@ -8,12 +8,12 @@ module.exports.postLogin = function(req, res) {
 	var email = req.body.email;
 	var password = req.body.password;
 
-	db.get('user').find({ email: email }).value();
+	var user = db.get('user').find({ email: email }).value();
 
 	if(!user) {
 		res.render('auth/login', {
 			errors: [
-				'Use does not exist'
+				'User does not exist'
 			],
 			values: req.body
 		});
