@@ -6,7 +6,7 @@ var authMiddleware = require('../middlewares/auth.middleware')
 
 var router = express.Router();
 
-router.get('/', authMiddleware.requireAuth, controller.index);
+router.get('/', controller.index);
 
 router.get('/cookie', function(req, res, next) {
 	res.cookie('user-id', 12345);
@@ -15,7 +15,7 @@ router.get('/cookie', function(req, res, next) {
 
 router.get('/search', controller.search);
 
-router.get('/create', authMiddleware.requireAuth, controller.create);
+router.get('/create', controller.create);
 
 router.get('/:id', controller.get);
 
